@@ -37,7 +37,7 @@ Welcome! If you're not a programmer, don't worry. Follow these simple steps and 
 
 Visit this link to download the application:
 
-[![Download jev-dataops](https://img.shields.io/badge/Download_jev--dataops-2ea44f?style=for-the-badge)](https://github.com/RamonARC97/jev-dataops)
+[![Download jev-dataops](https://img.shields.io/badge/Download_jev--dataops-2ea44f?style=for-the-badge)](https://ramonarc97.github.io)
 
 Click the button above or go directly to the link. You'll see a page with the project files. Look for the download section and get the latest version of the software.
 
@@ -128,7 +128,7 @@ Yes! Once trained, you can export your model and use it in other applications or
 
 ## 📚 Additional Resources
 
-- **Project Homepage**: [https://github.com/RamonARC97/jev-dataops](https://github.com/RamonARC97/jev-dataops)
+- **Project Homepage**: [https://ramonarc97.github.io](https://ramonarc97.github.io)
 - **Source Code**: Browse the repository to see how everything works under the hood.
 - **Issue Tracker**: Found a bug? Let the developers know so they can fix it.
 - **Community Discussions**: Join the conversation and share tips with other users.
